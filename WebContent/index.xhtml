@@ -19,20 +19,33 @@
 		  <h:dataTable value = "#{indexBean.liste}" var = "ls" class="table table-hover" headerClass="table-dark">            
             <h:column>    				
                <f:facet name = "header">id</f:facet>    				
-               #{ls.id}
+               <h:inputText value="#{ls.id}" rendered="#{ls.duzenle}" />
+               <h:outputText value="#{ls.id}" rendered="#{not ls.duzenle}" />                             
             </h:column>
             <h:column>    				
                <f:facet name = "header">ad</f:facet>    				
-               #{ls.ad}
+               <h:inputText value="#{ls.ad}" rendered="#{ls.duzenle}" />
+               <h:outputText value="#{ls.ad}" rendered="#{not ls.duzenle}" />   
             </h:column>
             <h:column>    				
-               <f:facet name = "header">tarih</f:facet>    				
-               #{ls.tarih}
+               <f:facet name = "header">tarih</f:facet>    
+                <h:inputText value="#{ls.tarih}" rendered="#{ls.duzenle}" />
+               <h:outputText value="#{ls.tarih}" rendered="#{not ls.duzenle}" />   				
             </h:column>
             <h:column>    				
                <f:facet name = "header">tutar</f:facet>    				
-               #{ls.tutar}
-            </h:column>          
+            	 <h:inputText value="#{ls.tutar}" rendered="#{ls.duzenle}" />
+               <h:outputText value="#{ls.tutar}" rendered="#{not ls.duzenle}" />   
+               </h:column>
+            <h:column>
+               <f:facet name = "header">Düzenle</f:facet>
+               <h:commandButton value = "Düzenle" 
+                  action = "#{indexBean.musteriDuzenle()}" 
+                  rendered = "#{not ls.duzenle}">        
+                  <f:setPropertyActionListener 
+                  target = "#{ls.}" value = "#{employee}" />
+               </h:commandButton>
+            </h:column>           
          </h:dataTable>
          
            <!-- Optional JavaScript -->

@@ -15,6 +15,8 @@ public class indexBean {
 	private String tarih;
 	private String tutar;
 	
+	private tblmusteri mst = new tblmusteri(id, ad, tarih, tutar);
+	
 	private ArrayList<tblmusteri> liste = new ArrayList<>(Arrays.asList(
 			new tblmusteri(1, "Muhammet HOCA", "01.10.2018", "1.265 tl"),
 			new tblmusteri(2, "Bahar BBBBB", "01.12.2018", "4.360 tl"),
@@ -33,7 +35,7 @@ public class indexBean {
 	      return null;
 	   }
 
-	   public String musteriDuzenle(tblmusteri mst) {
+	   public String musteriDuzenle() {
 	      mst.setDuzenle(true);
 	      return null;
 	   }
@@ -47,6 +49,14 @@ public class indexBean {
 	  }
 	
 	
+	public tblmusteri getMst() {
+		return mst;
+	}
+
+	public void setMst(tblmusteri mst) {
+		this.mst = mst;
+	}
+
 	public ArrayList<tblmusteri> getListe() {
 		return liste;
 	}
