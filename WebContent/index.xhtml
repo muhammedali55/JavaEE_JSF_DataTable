@@ -39,13 +39,29 @@
                </h:column>
             <h:column>
                <f:facet name = "header">Düzenle</f:facet>
-               <h:commandButton value = "Düzenle" 
+               <h:commandButton class="btn btn-primary" value = "Düzenle" 
                   action = "#{indexBean.musteriDuzenle()}" 
                   rendered = "#{not ls.duzenle}">        
                   <f:setPropertyActionListener 
-                  target = "#{ls.}" value = "#{employee}" />
+                  target = "#{indexBean.mst}" value = "#{ls}" />
                </h:commandButton>
+                <h:commandButton class="btn btn-success" value = "Kaydet" 
+                  action = "#{indexBean.musteriKaydet()}" 
+                  rendered = "#{ls.duzenle}">        
+                  <f:setPropertyActionListener 
+                  target = "#{indexBean.mst}" value = "#{ls}" />
+               </h:commandButton>
+            </h:column>
+             <h:column>
+               <f:facet name = "header">Sil</f:facet>
+               <h:commandButton class="btn btn-danger" value = "Sil" 
+                  action = "#{indexBean.musteriSil(ls)}"           >        
+                  <f:setPropertyActionListener 
+                  target = "#{indexBean.mst}" value = "#{ls}" />
+               </h:commandButton>
+                            
             </h:column>           
+                       
          </h:dataTable>
          
            <!-- Optional JavaScript -->
